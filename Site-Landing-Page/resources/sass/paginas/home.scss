@@ -1,0 +1,454 @@
+.quem_sou_eu{
+	background-color: #000;
+	padding: 60px 0;
+	@include desktop{
+		padding: 0px;
+	}
+
+	.conteudo{
+		display: inline-flex;
+		flex-wrap: wrap;
+		justify-content: space-between;			//joga o primeiro elemento pra esquerda e o proximo para a direita
+		align-items: center;					//centraliza os items na pagina
+
+		img{
+			width: 100%;						//limitando o espaço que a imagem vai ocupar no site no MOBILE
+
+			@include desktop{
+			width: 46%;							//limitando o espaço que a imagem vai ocupar no site
+
+			}
+		}
+
+		.texto{
+			width: 100%;
+			color: #fff;
+
+			@include desktop{
+			width: 50%;							//limitando o espaço do texto vai ocupar no site
+			}
+
+			.titulo{
+				font-size: 36px;
+				font-family: 'Montserrat Medium';
+				line-height: 57px;
+				font-style: italic;
+				margin-bottom: 69px;			//Espaço do titulo para o texto <p>
+			}
+
+			.descricao{
+				p{
+					font-size: 18px;
+					line-height: 26px;
+					font-family: 'Montserrat Regular';
+					margin-bottom: 39px;
+					text-align: justify;
+				}
+			}
+
+			.btn-principal{
+				width: max-content;
+				display:block;
+				margin-top: 69px;
+			}
+		}
+	}
+}
+
+.eventos{
+	padding: 50px 0;
+
+	.conteudo{
+		.titulo{
+			width: max-content;
+			display: block;
+			margin: 0 auto 50px auto;
+			font-size: 36px;
+			font-family: 'Montserrat Medium';
+			line-height: 57px;
+			font-style: italic;
+			&:after{
+				background-color: #000;			//After é usado para colocar a barra abaixo do titulo
+			}
+		}
+
+		.lista{
+			display: inline-flex;
+			flex-wrap: wrap;
+			width: 100%;
+
+			.item{
+				display: inline-flex;
+				flex-wrap: wrap;
+				width: 100%;
+				justify-content: space-between;
+				margin-bottom: 90px;
+
+				&:last-child{						//Ele vai pegar dentro da class lista a ultima que tenha a class item e executar algo, no caso remover a margin
+					margin-bottom: 0px;
+				}
+
+				img{
+					order: 0;				//no MOBILE ela vai vir sempre a cima
+					width: 100%;
+
+					@include desktop{
+						width: 47%;
+						order: 1;				//no Desktop ela vai ficar com 0 aqui e no nth-child ela vai trocar a segunda pra 0 para mudar de lado
+					}
+				}
+
+				.texto{
+					order:1;
+					width: 100%;
+
+					@include desktop{
+						order:0;
+						width: 50%;
+					}
+
+					.titulo{
+						font-size: 18px;
+						margin: 0 0 50px 0;
+						line-height: 35px;
+						max-width: 100%;
+						@include desktop{
+							font-size: 24px;
+							line-height: 43px;
+						}
+					}
+
+					.descricao{
+						p{
+							font-size: 18px;
+							line-height: 26px;
+							margin-bottom: 30px;
+							text-align: justify;
+
+							&:last-child{						//Ele vai pegar dentro da class lista a ultima que tenha a class item e executar algo, no caso remover a margin
+								margin-bottom: 0px;
+							}
+						}
+					}
+				}
+
+				&:nth-child(2n+2){				//Dentro do () é o valor que vc quer, no caso no segundo ele vai executar algo, no caso trocar a ordem da img de lugar.
+					img{
+						@include desktop{
+							order: 0;
+						}
+					}
+					.texto{
+						@include desktop{
+							order: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.nossos-cursos{
+	padding: 50px 0;
+	background-color: #000;
+
+	.conteudo{
+		.titulo{
+			width: max-content;
+			display: block;
+			margin: 0 auto 50px auto;
+			font-size: 36px;
+			font-family: 'Montserrat Medium';
+			line-height: 57px;
+			font-style: italic;
+			color: #fff;
+			&:after{
+				max-width: 100%;
+			}
+		}
+
+		.lista{
+			display: inline-flex;
+			flex-wrap: wrap;
+			width: 100%;
+
+			.item{
+				display: inline-flex;
+				flex-wrap: wrap;
+				width: 100%;
+				justify-content: space-between;
+				margin-bottom: 50px;
+				padding-bottom: 50px;
+				position: relative;		//para que o after abaixo funcione
+				&:after{				//Serve para colocar a barra entre os itens igual ao projeto
+					width: 45%;
+					max-width: 655px;
+					height: 4px;
+					position: absolute;
+					content: ' ';
+					background-color: #fff;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					margin: 0 auto;
+				}
+
+				&:last-child{		//Ele vai pegar dentro da class lista a ultima que tenha a class item e executar algo, no caso remover a margin e o efeito do after a cima
+					margin-bottom: 0px;
+					padding-bottom:0px;
+					&:after{
+						display:none;
+					}
+				}
+
+				img{
+					order: 0;				//no MOBILE ela vai vir sempre a cima
+					width: 100%;
+					border-radius: 15px;
+
+					@include desktop{
+						width: 32%;
+						order: 1;				//no Desktop ela vai ficar com 0 aqui e no nth-child ela vai trocar a segunda pra 0 para mudar de lado
+					}
+				}
+
+				.texto{
+					order:1;
+					width: 100%;
+
+					@include desktop{
+						order:0;
+						width: 60%;
+					}
+
+					.titulo{
+						font-size: 18px;
+						margin: 0 0 50px 0;
+						line-height: 35px;
+						max-width: 100%;
+						@include desktop{
+							font-size: 24px;
+							line-height: 43px;
+						}
+
+						&:after{
+							display:none;			//esse que coloca o tracejado esta no reset.scss
+						}
+					}
+
+					.descricao{
+						p{
+							font-size: 18px;
+							line-height: 26px;
+							margin-bottom: 30px;
+							color: #fff;
+							text-align: justify;
+
+							&:last-child{						//Ele vai pegar dentro da class lista a ultima que tenha a class item e executar algo, no caso remover a margin
+								margin-bottom: 0px;
+							}
+						}
+					}
+				}
+
+				&:nth-child(2n+2){				//Dentro do () é o valor que vc quer, no caso no segundo ele vai executar algo, no caso trocar a ordem da img de lugar.
+					img{
+						@include desktop{
+							order: 0;
+						}
+					}
+					.texto{
+						@include desktop{
+							order: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.videos{
+	padding: 50px 0;
+	background-color: #f5f5f5;
+
+	.conteudo{
+		.titulo{
+			width: max-content;
+			display: block;
+			margin: 0 auto 50px auto;
+			font-size: 36px;
+			font-family: 'Montserrat Medium';
+			line-height: 57px;
+			font-style: italic;
+			color: #000;
+			&:after{
+				max-width: 100%;
+				background-color: #000;
+			}
+		}
+
+		.texto{
+			width: 100%;
+			display: inline-flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 50px;
+			padding: 0 25px;
+			@include desktop{
+				justify-content: flex-start;
+			}
+
+			.subtitulo{
+				font-size: 22px;
+				font-family: 'Montserrat Medium';
+				font-style: italic;
+				line-height: 35px;
+				@include desktop{
+					font-size: 36px;
+					line-height: 57px;
+				}
+			}
+
+			.btn-principal{
+				border-color: #000;
+				color: #000;
+				padding: 10px 25px;
+				margin-left: 34px;
+				margin-right: 34px;
+			}
+		}
+		.lista{
+			width: 100%;
+			display: block;
+
+			.slick-track{
+				align-items: baseline;		//para alinhar os videos dentro so slider
+			}
+
+			.item{
+				width: 100%;
+				display: block;
+				margin: 0px 25px;		//distancia entre os videos
+
+				img{
+					width:100%;
+				}
+				.titulo-video{
+					font-size: 16px;
+					font-family: 'Montserrat Medium';
+					margin: 20px 0;
+				}
+			}
+
+			.slick-dots{					//Configurando os efeitos do slider dentro do site
+				li{
+					width: 15px;
+					height: 15px;
+					
+					button{
+						width: 15px;
+						height: 15px;
+						padding: 0px;
+						border: 1px solid #000;
+						border-radius: 50%;
+						&:before{
+							display:none;
+						}
+					}
+
+					&.slick-active{
+						button{
+							border: 5px solid #000;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.fale_comigo{
+	padding: 50px 0;
+	background-color: #000;
+	color: #fff;
+
+	.conteudo{
+		display: inline-flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: space-between;
+
+		.texto{
+			width: 100%;
+
+			@include desktop{
+				width: 68%;
+			}
+			.titulo{
+			font-size: 36px;
+			font-family: 'Montserrat Medium';
+			line-height: 57px;
+			font-style: italic;
+			margin-bottom: 55px;			//Espaço do titulo para o texto <p>
+			color: #fff;
+			}
+
+			.itens{
+				display: inline-flex;
+				align-items: flex-start;
+				flex-wrap: wrap;
+				width: 100%;
+				justify-content: space-between;
+				text-align:center;
+				@include tablet{
+					text-align: left;
+				}
+
+				.item{
+					width: 100%;
+					margin-bottom: 15px;
+
+					@include tablet{
+						width: auto;
+						margin-bottom: 0px;
+					}
+					h3{
+						font-size: 24px;
+						font-family: 'Montserrat Bold';
+						text-decoration: underline;
+					}
+					.detalhes{
+						display: inline-flex;
+						align-items: center;
+						margin-top: 10px;
+
+						a{
+							color: #fff;
+						}
+						img{
+							height: 25px;
+							margin-right: 10px;
+						}
+					}
+				}
+			}
+		}
+		.img_contato{
+			width: auto;
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			margin-top: 25px;
+
+			@include desktop{
+				max-width: 32%;
+				margin: 0;
+				margin-top: 0px;
+			}
+		}
+	}
+}

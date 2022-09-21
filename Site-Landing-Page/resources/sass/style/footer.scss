@@ -1,0 +1,22 @@
+footer{
+	padding: 20px 0;
+
+	.conteudo{
+		display: inline-flex;
+		flex-wrap: wrap;
+		width: 100%;
+		text-align: center;
+		justify-content: center;
+
+		@include tablet{
+			justify-content: space-between;
+			text-align: initial;
+		}
+
+		.right{
+			img{
+				filter: brightness(0) saturate(0);
+			}
+		}
+	}
+}

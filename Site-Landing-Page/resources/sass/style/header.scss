@@ -1,0 +1,174 @@
+header{
+	display: inline-flex;
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+	position: fixed;						/*fixar os menus no site para quando rolar a pagina*/
+	z-index: 2; 							/*Isso é para ele sempre ficar a frente do restante do site*/
+
+	.container{
+		display: inline-flex;					/*o menu foi para do lado da logo*/
+		justify-content: space-between;			/*É usado para que o procimo item fique do outro lado*/
+		align-items: center;
+		padding-top: 15px;
+		padding-bottom: 15px;
+
+		.btn-menu{
+			color: #fff;
+			height: 100%;
+			display: inline-flex;
+			align-items: center;
+			padding: 0 20px;
+			background-color: #333;
+			cursor: pointer;
+
+			@include desktop{
+				display: none
+			}
+		}
+
+		.menus{
+			//Efeito no menu no Mobile para ele aparecer e sumir ao clicar usando o js.js
+			&.active{
+				right: 0;
+				&:before{
+					width: 100vw;
+
+					@include desktop{
+						display:none;
+					}
+				}
+			}
+
+			//Efeito no menu no Mobile
+			&:before{
+				width: 0px;
+				height: 100%;
+				background-color: #0000005c;
+				content: '';
+				position: absolute;
+				left: -100vw;
+			}
+
+			display: block;
+			position: fixed;
+			right: -250px;
+			width: 250px;
+			background: #fff;
+			top: 99px;
+			height: calc(100vh - 99px);				/*vh é o valor da altura - 99px para ele ocupar toda tela no mobile*/
+			transition: .5s;
+
+
+			@include desktop{
+				display: inline-flex;
+				align-items: center;
+				justify-content: flex-end;
+				width: 100%;
+				position: relative;
+				right: initial;
+				top: initial;
+				background: transparent;
+				height: initial;
+			}
+
+			.menu{
+
+				width: 100%;
+				display: block;
+
+				@include desktop{
+					width: auto;
+				}
+				ul{
+					flex-wrap:wrap;					/*para que os menus fiquem um a baixo do outro no modo mobile*/
+					display: inline-flex;
+					width: auto;
+					justify-content: space-between; /*para separar todas as li*/
+
+					@include desktop{
+						flex-wrap:initial;
+					}
+
+					li{
+						width: 100%;					/*para ocupar 100% da linha no mobile*/
+						padding: 10px 10px;				/*para dar espaço no mobile no cabeçalho*/
+
+						@include desktop{
+							padding: 0px 25px;
+							width: auto;
+						}
+
+						@include desktop-hd{
+							padding: 0px 45px;
+						}
+
+						a{
+							color: #333;
+							
+							position: relative;			/*para aparecer a linha do efeito do after*/
+							padding: 9px 0px;
+
+							@include desktop{
+								color: #fff;
+							}
+
+							/* Pra fazer o efeito da linha em baixo dos menus */
+							&:after{
+								background-color: #333;
+								width: 0;				/*ele vai iniciar com 0 sem mostrar e depois no hover ele aparece com 100%*/
+								height: 2px;
+								content: ' ';
+								bottom: 0px;
+								position: absolute;		/*para aparecer a linha*/
+								left: 0px;
+								transition: 0.25s;		/*tempo gasto para fazer o efeito*/
+
+
+								@include desktop{
+									background-color: #fff;
+								}
+							}
+							/*USA PARA FAZER O EFEITO quando passar o mouse no menu dentro do after para aparecer as linhas abaixo*/
+							&:hover{
+								&:after{
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.social{
+			color: #333;
+			padding: 10px 10px;
+			width: 100%;
+			display: inline-flex;
+			align-items: center;
+
+			@include desktop{
+				color: #fff;
+				width: auto;
+				padding: 0px 0px 0px 25px;
+			}
+
+			@include desktop-hd{
+				padding: 0px 45px;
+			}
+
+			a{
+				margin-left: 14px;			/*margim dos icones das redes sociais*/
+
+				img{
+					filter: brightness(0) saturate(0);
+
+					@include desktop{
+						filter:initial;  //initial removeu o filtro, fazendo com que as img voltasse as configurações anteriores para o desktop
+					}
+				}
+
+			}
+		}
+	}
+}

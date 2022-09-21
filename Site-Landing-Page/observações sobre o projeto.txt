@@ -1,0 +1,2 @@
+Devemos instalar o composer install, na pasta do htdocs
+e instalar o npm install na pasta htdocs"ele le o package.json, esse instala todas as dependencias para o gulp watch nos assistir durante o curso

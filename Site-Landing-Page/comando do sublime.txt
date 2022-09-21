@@ -1,0 +1,16 @@
+ctrl + Enter (cria uma linha abaixo da atual)				= CRIAR
+ctrl + Shift + Enter (Cria uma linha a cima)				= MOVER
+ctrl + shift + ; (inserir um bloco de comentarios)			= COMENTAR
+ctrl + ; (comentar a linha e descomentar a linha)			=COMENTAR
+ctrl + Click (selecionar varias partes e escreve de uma vez)=SELEÇÃO
+ctrl + D (selecionar repetições de varias palavras iguais)  =SELEÇÃO
+ctrl + j (elimina espaço de uma linha entre outra)			=REMOVER
+ctrl + P (procura o arquivo que deseja editar)				=PROCURAR
+ctrl + L (seleciona uma linha inteira do codigo)			=SELECIONAR
+ctrl + u (deitar a seleção em letras maiusculas)			=TAMANHO LETRA
+alt+shift+w (encapsular uma linha de texto, selecionada)	=ENCAPSULAR
+shift+ctrl+d (copia toda uma linha de codigo e ja cola)		=COPIAR E COLAR
+Shift + alt + Numero"1" 1 a 8, para criar divizão na tela de edição do sublime
+Para alternar o cursor entre as telas Ctrl + o numero da tela
+
+Ctrl + Shift + numero (para lancar o arquivo aberto em outra janela ja aberta)
